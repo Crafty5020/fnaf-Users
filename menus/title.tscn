@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxuytrt6irsud"]
+
+[ext_resource type="Script" uid="uid://buocv87v260ye" path="res://scripts/title.gd" id="1_7kd0g"]
+[ext_resource type="Texture2D" uid="uid://dvogq0xiemifn" path="res://icon.svg" id="2_7kd0g"]
+[ext_resource type="PackedScene" uid="uid://c2ut7uhan7lia" path="res://game.tscn" id="2_08hs7"]
+[ext_resource type="PackedScene" uid="uid://5767oar3mi0o" path="res://interfaces/vhs.tscn" id="2_vmgax"]
+
+[node name="title" type="Node2D"]
+script = ExtResource("1_7kd0g")
+game = ExtResource("2_08hs7")
+
+[node name="FNAG" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(968, 487)
+scale = Vector2(16.5021, 11.7429)
+texture = ExtResource("2_7kd0g")
+
+[node name="vhs" parent="." instance=ExtResource("2_vmgax")]
+layer = 0
+
+[node name="gui" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="gui"]
+offset_left = 444.0
+offset_top = 529.0
+offset_right = 477.0
+offset_bottom = 554.0
+scale = Vector2(12.8607, 4.85791)
+theme_override_font_sizes/font_size = 12
+text = "Play"
+
+[connection signal="pressed" from="gui/Button" to="." method="start_game"]

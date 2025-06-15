@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr4wdtdvd7nha"]
+
+[ext_resource type="Script" uid="uid://ct48imptf53lc" path="res://scripts/splash_manager.gd" id="1_50j67"]
+[ext_resource type="PackedScene" uid="uid://5767oar3mi0o" path="res://interfaces/vhs.tscn" id="1_b04ml"]
+[ext_resource type="PackedScene" uid="uid://dxuytrt6irsud" path="res://menus/title.tscn" id="2_13jq6"]
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50j67")
+title_screen = ExtResource("2_13jq6")
+fade_out_time = 0.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0.0509804, 0.0823529, 1)
+
+[node name="vhs" parent="." instance=ExtResource("1_b04ml")]
+
+[node name="Disclaimer" type="Label" parent="."]
+layout_mode = 2
+offset_left = 370.0
+offset_top = 292.0
+offset_right = 913.0
+offset_bottom = 332.0
+theme_override_font_sizes/font_size = 29
+text = "This game is NOT for the faint of heart."
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Disclaimer2" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "This is a recreation of Five Nights At Freedy's 1. This is made for fun and practice. This game is NOT for sell."
+horizontal_alignment = 1
+
+[node name="splash_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="splash_timer" to="." method="_splash_timer_timeout"]

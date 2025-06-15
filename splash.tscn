@@ -25,6 +25,8 @@ grow_vertical = 2
 color = Color(0.0509804, 0.0509804, 0.0823529, 1)
 
 [node name="vhs" parent="." instance=ExtResource("1_b04ml")]
+layout_mode = 0
+anchors_preset = 0
 
 [node name="Disclaimer" type="Label" parent="."]
 layout_mode = 2

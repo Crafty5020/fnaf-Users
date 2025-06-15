@@ -1,28 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2ut7uhan7lia"]
+[gd_scene load_steps=4 format=3 uid="uid://c2ut7uhan7lia"]
 
 [ext_resource type="Script" uid="uid://b3qnpyeo2n0w0" path="res://scripts/game.gd" id="1_feb5d"]
-[ext_resource type="Script" uid="uid://dneq2lmt5tlug" path="res://scripts/player_camera.gd" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://dxuytrt6irsud" path="res://menus/title.tscn" id="2_fc0e3"]
-[ext_resource type="Texture2D" uid="uid://dvogq0xiemifn" path="res://icon.svg" id="2_feb5d"]
+[ext_resource type="Texture2D" uid="uid://dvogq0xiemifn" path="res://icon.svg" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://dneq2lmt5tlug" path="res://scripts/player.gd" id="3_feb5d"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_feb5d")
-title = ExtResource("2_fc0e3")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(29.5, 5.625)
-texture = ExtResource("2_feb5d")
+texture = ExtResource("2_e2o6t")
 
 [node name="player" type="Camera2D" parent="."]
-script = ExtResource("2_e2o6t")
+script = ExtResource("3_feb5d")
 
 [node name="mouse" type="CanvasLayer" parent="player"]
 layer = 2
 
 [node name="pointer" type="TextureRect" parent="player/mouse"]
-offset_right = 64.0
-offset_bottom = 48.0
-texture = ExtResource("2_feb5d")
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_e2o6t")
 expand_mode = 1
 
 [node name="gui" type="CanvasLayer" parent="."]
